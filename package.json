@@ -1,0 +1,26 @@
+{
+  "name": "mad-coder",
+  "version": "0.0.1",
+  "description": "A theme for hugo",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neal1991/mad-coder.git"
+  },
+  "keywords": [
+    "hugo",
+    "hugo-theme"
+  ],
+  "author": "neal1991",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neal1991/mad-coder/issues"
+  },
+  "homepage": "https://github.com/neal1991/mad-coder#readme",
+  "devDependencies": {
+    "webpack": "^4.2.0"
+  }
+}

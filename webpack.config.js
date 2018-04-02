@@ -1,12 +1,13 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
         entry: __dirname + "/src/js/index.js",
         output: {
             path: __dirname + "/static/js/",
-            filename: "bundle-[hash].js"
+            filename: "bundle.js"
         },
         devtool: 'none',
         devServer: {
@@ -36,10 +37,31 @@ module.exports = {
                             loader: "postcss-loader"
                         }],
                     })
+                }, {
+                    test: /\.scss/,
+                    use: [{
+                        loader: "style-loader"
+                    }, {
+                        loader: "css-loader"
+                    }, {
+                        loader: "sass-loader"
+                    }]
                 }
         ]
     },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
-    ]
+    optimization: {
+      minimizer: [
+        // we specify a custom UglifyJsPlugin here to get source maps in production
+        new UglifyJsPlugin({
+          cache: true,
+          parallel: true,
+          uglifyOptions: {
+            compress: false,
+            ecma: 6,
+            mangle: true
+          },
+          sourceMap: true
+        })
+      ]
+    },
 };

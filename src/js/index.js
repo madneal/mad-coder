@@ -1,4 +1,5 @@
 // Selected DOM elements
+// import stylesheet from '../styles/main.scsss'
 const html = document.querySelector('html');
 const body = document.querySelector('body');
 const menuToggle = document.querySelector('.menu-toggle');
